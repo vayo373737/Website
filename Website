@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashing Colors</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <audio id="audio" autoplay loop>
+        <source src="YOUR_MP3_URL_HERE" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Automatically enter fullscreen on page load
+        document.documentElement.requestFullscreen();
+
+        // Flashing Colors
+        function flashColors() {
+            const colors = [
+                'red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'cyan', 'white', 'gray'
+            ];
+            let i = 0;
+            setInterval(() => {
+                document.body.style.backgroundColor = colors[i % colors.length];
+                i++;
+            }, 100); // Change every 100 milliseconds
+        }
+
+        // Start flashing colors
+        flashColors();
+
+        // Get the audio element and set the volume to 100% (full volume)
+        var audioElement = document.getElementById("audio");
+        audioElement.volume = 1.0;  // Set volume to full (1.0 is max volume)
+    </script>
+</body>
+</html>
